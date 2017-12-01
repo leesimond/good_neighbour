@@ -25,23 +25,23 @@ You win when your opponent places a ball outside their backyard, out of view.
 ## Controls
 * Player 1 controls
 
-  W – Very fast ball drop
-  A – Move balls left
-  S – Faster ball drop
-  D – Move balls right
+  * W – Very fast ball drop
+  * A – Move balls left
+  * S – Faster ball drop
+  * D – Move balls right
 
-  F – Rotate ball anti-clockwise
-  G – Rotate ball clockwise
+  * F – Rotate ball anti-clockwise
+  * G – Rotate ball clockwise
 
 * Player 2 controls
 
-  I – Very fast ball drop
-  J – Move balls left
-  K – Faster ball drop
-  L – Move balls right
+  * I – Very fast ball drop
+  * J – Move balls left
+  * K – Faster ball drop
+  * L – Move balls right
 
-  ; – Rotate ball anti-clockwise
-  ' – Rotate ball clockwise
+  * ; – Rotate ball anti-clockwise
+  * ' – Rotate ball clockwise
 
 ## Note
 Tested on Windows 10 only.
