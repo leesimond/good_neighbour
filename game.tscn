@@ -1,0 +1,552 @@
+[gd_scene load_steps=36 format=1]
+
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://playfield.tscn" type="PackedScene" id=2]
+[ext_resource path="res://house_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://house_arch_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://Fonts/Kenney_pixel_square.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://Sprites/Characters/Boy/player_cheer2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Boy/player_cheer1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Boy/player_hurt.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Boy/player_idle.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Boy/player_stand.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Boy/player_kick.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Girl/female_cheer1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Girl/female_cheer2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Girl/female_hurt.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Girl/female_idle.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Girl/female_stand.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Girl/female_kick.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/fence.png" type="Texture" id=19]
+[ext_resource path="res://Sounds/Vivacity.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/highDown.smp" type="Sample" id=21]
+[ext_resource path="res://Sounds/highUp.smp" type="Sample" id=22]
+[ext_resource path="res://Sounds/tone1.smp" type="Sample" id=23]
+[ext_resource path="res://Sounds/powerUp12.smp" type="Sample" id=24]
+[ext_resource path="res://Sounds/pepSound3.smp" type="Sample" id=25]
+
+[sub_resource type="BitmapFont" id=1]
+
+textures = [  ]
+chars = IntArray(  )
+kernings = IntArray(  )
+height = 1.0
+ascent = 0.0
+distance_field = false
+fallback = ExtResource( 6 )
+
+[sub_resource type="Animation" id=8]
+
+resource/name = "Cheer"
+length = 1.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ), ExtResource( 7 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "Hurt"
+length = 2.5
+loop = false
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "Idle"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 1.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.7 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "Cheer"
+length = 1.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ), ExtResource( 14 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "Hurt"
+length = 2.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "Idle"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 1.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.7 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 17 ) ]
+}
+
+[sub_resource type="SampleLibrary" id=10]
+
+samples/anti_clockwise = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 21 )
+}
+samples/clockwise = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 22 )
+}
+samples/drop = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 23 )
+}
+samples/rubbish = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 24 )
+}
+samples/throw = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 25 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Playfield1" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 40, 80 )
+
+[node name="Playfield2" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 640, 80 )
+
+[node name="TileMapFrame" type="TileMap" parent="."]
+
+transform/pos = Vector2( -40, 0 )
+transform/scale = Vector2( 0.571428, 0.571428 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 70, 70 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 1, 25, 2, 25, 3, 25, 4, 25, 5, 25, 6, 25, 7, 25, 8, 24, 16, 23, 17, 23, 18, 23, 19, 23, 20, 23, 21, 23, 22, 23, 23, 23, 65537, 24, 65538, 24, 65539, 24, 65540, 24, 65541, 24, 65542, 24, 65543, 24, 65544, 24, 65547, 29, 65552, 22, 65553, 22, 65554, 22, 65555, 22, 65556, 22, 65557, 22, 65558, 22, 65559, 22, 131073, 10, 131080, 8, 131088, 21, 131095, 19, 196609, 7, 196616, 6, 196624, 18, 196631, 17, 262145, 7, 262152, 6, 262160, 18, 262167, 17, 327681, 7, 327688, 6, 327691, 34, 327696, 18, 327703, 17, 393217, 7, 393224, 6, 393225, 10, 393231, 19, 393232, 18, 393239, 17, 458753, 7, 458760, 6, 458761, 7, 458767, 17, 458768, 18, 458775, 17, 524289, 7, 524296, 6, 524297, 7, 524303, 17, 524304, 18, 524311, 17, 589825, 7, 589832, 6, 589833, 7, 589839, 17, 589840, 18, 589847, 17, 655361, 7, 655368, 6, 655369, 7, 655375, 17, 655376, 18, 655383, 17, 720897, 7, 720904, 6, 720905, 7, 720911, 17, 720912, 18, 720919, 17, 786433, 7, 786440, 6, 786441, 7, 786447, 17, 786448, 18, 786455, 17, 851969, 5, 851976, 3, 851977, 5, 851983, 14, 851984, 16, 851991, 14 )
+
+[node name="TileMapRoof" type="TileMap" parent="."]
+
+transform/pos = Vector2( -40, 0 )
+transform/scale = Vector2( 0.571428, 0.571428 )
+z/z = 2
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 70, 70 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 1, 25, 2, 25, 3, 25, 4, 25, 5, 25, 6, 25, 7, 25, 8, 24, 16, 23, 17, 23, 18, 23, 19, 23, 20, 23, 21, 23, 22, 23, 23, 23, 65537, 24, 65538, 24, 65539, 24, 65540, 24, 65541, 24, 65542, 24, 65543, 24, 65544, 24, 65547, 29, 65552, 22, 65553, 22, 65554, 22, 65555, 22, 65556, 22, 65557, 22, 65558, 22, 65559, 22, 327691, 34 )
+
+[node name="TileMapNext" type="TileMap" parent="."]
+
+transform/pos = Vector2( -120, 0 )
+transform/scale = Vector2( 0.625, 0.625 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 25, 1, 25, 2, 25, 3, 25, 4, 25, 5, 25, 6, 25, 7, 25, 8, 24, 9, 24, 22, 23, 23, 23, 24, 23, 25, 23, 26, 23, 27, 23, 28, 23, 29, 23, 30, 23, 31, 23, 65536, 24, 65537, 24, 65538, 24, 65542, 24, 65543, 24, 65544, 24, 65558, 22, 65559, 22, 65560, 22, 65561, 22, 65562, 22, 65563, 22, 65564, 22, 65565, 22, 65566, 22, 65567, 22, 131083, 7, 131084, 8, 131085, 9, 131087, 17, 131088, 18, 131089, 19, 196619, 4, 196621, 6, 196623, 14, 196625, 16, 262155, 4, 262157, 6, 262159, 14, 262161, 16, 327691, 1, 327692, 0, 327693, 2, 327695, 11, 327696, 10, 327697, 12 )
+
+[node name="TileMapBackground" type="TileMap" parent="."]
+
+visibility/opacity = 0.78
+z/z = -1
+mode = 0
+tile_set = ExtResource( 5 )
+cell/size = Vector2( 40, 40 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 8, 4, 9, 5, 10, 6, 11, 4, 12, 4, 13, 4, 14, 4, 15, 4, 65544, 4, 65545, 4, 65546, 4, 65547, 4, 65548, 5, 65549, 5, 65550, 6, 65551, 5, 131080, 4, 131081, 4, 131082, 4, 131083, 4, 131084, 5, 131085, 4, 131086, 4, 131087, 4, 196616, 4, 196617, 4, 196618, 4, 196619, 4, 196620, 5, 196621, 4, 196622, 4, 196623, 4, 262152, 4, 262153, 4, 262154, 4, 262155, 4, 262156, 5, 262157, 4, 262158, 4, 262159, 4, 327688, 4, 327689, 4, 327690, 4, 327691, 4, 327692, 5, 327693, 4, 327694, 4, 327695, 4, 393224, 4, 393225, 4, 393226, 4, 393227, 4, 393228, 5, 393229, 5, 393230, 4, 393231, 4, 458760, 4, 458761, 5, 458762, 4, 458763, 4, 458764, 5, 458765, 5, 458766, 4, 458767, 4, 524296, 6, 524297, 4, 524298, 4, 524299, 4, 524300, 4, 524301, 5, 524302, 4, 524303, 4, 589832, 4, 589833, 4, 589834, 5, 589835, 4, 589836, 4, 589837, 5, 589838, 4, 589839, 5, 655368, 4, 655369, 4, 655370, 4, 655371, 4, 655372, 4, 655373, 4, 655374, 4, 655375, 4, 720904, 4, 720905, 4, 720906, 4, 720907, 4, 720908, 4, 720909, 4, 720910, 4, 720911, 4, 786440, 4, 786441, 4, 786442, 4, 786443, 4, 786444, 4, 786445, 4, 786446, 4, 786447, 4, 851976, 4, 851977, 5, 851978, 4, 851979, 4, 851980, 4, 851981, 4, 851982, 4, 851983, 4 )
+
+[node name="TileMapBackground1" type="TileMap" parent="."]
+
+z/z = -1
+mode = 0
+tile_set = ExtResource( 5 )
+cell/size = Vector2( 40, 40 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 917504, 0, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 917515, 0, 917516, 0, 917517, 0, 917518, 0, 917519, 0, 917526, 0 )
+
+[node name="Chain1" type="Node2D" parent="."]
+
+z/z = 3
+
+[node name="Chain1" type="Label" parent="Chain1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 78.0
+margin/top = 34.0
+margin/right = 246.0
+margin/bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.4, 0.4, 0.4, 1 )
+text = "88 chain"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Chain2" type="Node2D" parent="."]
+
+z/z = 3
+
+[node name="Chain2" type="Label" parent="Chain2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 678.0
+margin/top = 34.0
+margin/right = 846.0
+margin/bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.402344, 0.402344, 0.402344, 1 )
+text = "88 chain"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Warning1" type="Node2D" parent="."]
+
+z/z = 3
+
+[node name="Warning1" type="Label" parent="Warning1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 47.0
+margin/top = 74.0
+margin/right = 279.0
+margin/bottom = 114.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.993164, 1, 0.125, 1 )
+custom_colors/font_color_shadow = Color( 0.4, 0.4, 0.4, 1 )
+text = "Warning: 88"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Warning2" type="Node2D" parent="."]
+
+z/z = 3
+
+[node name="Warning2" type="Label" parent="Warning2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 647.0
+margin/top = 74.0
+margin/right = 879.0
+margin/bottom = 114.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.993164, 1, 0.125, 1 )
+custom_colors/font_color_shadow = Color( 0.4, 0.4, 0.4, 1 )
+text = "Warning: 88"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Next" type="Label" parent="."]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 349.0
+margin/top = 79.0
+margin/right = 493.0
+margin/bottom = 119.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.4, 0.4, 0.4, 1 )
+custom_constants/shadow_offset_x = 0
+text = "Next"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Next1" type="Label" parent="."]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 509.0
+margin/top = 79.0
+margin/right = 653.0
+margin/bottom = 119.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.4, 0.4, 0.4, 1 )
+custom_constants/shadow_offset_x = 0
+text = "Next"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Player1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 400, 320 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player1"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Cheer = SubResource( 8 )
+anims/Hurt = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Kick = SubResource( 4 )
+next/Hurt = "Idle"
+next/Kick = "Idle"
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Player2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 520, 320 )
+texture = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player2"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Cheer = SubResource( 9 )
+anims/Hurt = SubResource( 5 )
+anims/Idle = SubResource( 6 )
+anims/Kick = SubResource( 7 )
+next/Hurt = "Idle"
+next/Kick = "Idle"
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Fence1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 380, 200 )
+transform/scale = Vector2( 1.875, 1.25 )
+texture = ExtResource( 19 )
+
+[node name="Fence2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 540, 200 )
+transform/scale = Vector2( 1.875, 1.25 )
+texture = ExtResource( 19 )
+
+[node name="NextParent1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 380, 180 )
+
+[node name="NextParent2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 540, 180 )
+
+[node name="NextChild1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 380, 140 )
+
+[node name="NextChild2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 540, 140 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="StreamPlayer" type="StreamPlayer" parent="Spatial"]
+
+stream/stream = ExtResource( 20 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="SamplePlayer" type="SamplePlayer" parent="Spatial"]
+
+config/polyphony = 1
+config/samples = SubResource( 10 )
+default/volume_db = -11.93
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
+

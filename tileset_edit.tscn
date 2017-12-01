@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Sprites/fence_grass_border.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/grass_01_border.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/grass_02_border.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/grass_03_border.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/grass_01.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/grass_02.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/grass_03.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Fence" type="Sprite" parent="."]
+
+transform/pos = Vector2( 20, 20 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fence"]
+
+transform/pos = Vector2( 4.76837e-07, -4.76837e-07 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence/StaticBody2D"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Grass1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 60, 20 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 100, 20 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 140, 20 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 180, 20 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 220, 20 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 260, 20 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+

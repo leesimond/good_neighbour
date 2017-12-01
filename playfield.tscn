@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://playfield.gd" type="Script" id=1]
+[ext_resource path="res://tileset.tres" type="TileSet" id=2]
+
+[node name="Playfield" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 40, 40 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 786432, 0, 786433, 0, 786434, 0, 786435, 0, 786436, 0, 786437, 0 )
+
+[node name="TileMap1" type="TileMap" parent="."]
+
+visibility/opacity = 0.8
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 40, 40 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 65536, 1, 65537, 1, 65538, 1, 65539, 1, 65540, 1, 65541, 1, 131072, 1, 131073, 1, 131074, 1, 131075, 1, 131076, 1, 131077, 1, 196608, 1, 196609, 1, 196610, 1, 196611, 1, 196612, 1, 196613, 1, 262144, 1, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 327680, 1, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 393216, 1, 393217, 1, 393218, 1, 393219, 1, 393220, 1, 393221, 1, 458752, 1, 458753, 1, 458754, 1, 458755, 1, 458756, 1, 458757, 1, 524288, 1, 524289, 1, 524290, 1, 524291, 1, 524292, 1, 524293, 1, 589824, 1, 589825, 1, 589826, 1, 589827, 1, 589828, 1, 589829, 1, 655360, 1, 655361, 1, 655362, 1, 655363, 1, 655364, 1, 655365, 1, 720896, 1, 720897, 1, 720898, 1, 720899, 1, 720900, 1, 720901, 1 )
+
+
